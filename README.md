@@ -3,7 +3,9 @@
 Required:
 
 > 2 VPS Open port (VPS Old and New)
+
 > VPS Operating System is Ubuntu
+
 > Terminal (PuTTY for Windows, Termux and Termius for Android)
 
 Note:
