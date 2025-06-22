@@ -103,14 +103,12 @@ apt -y install php8.3 php8.3-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,z
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-4. Buat dan Download file Pterodactyl
+4. Buat file Pterodactyl
 ```bash
 mkdir -p /var/www/pterodactyl
-cd /var/www/pterodactyl
-
-curl -Lo panel.tar.gz https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz
-tar -xzvf panel.tar.gz
+tar -xzvf /root/panel.tar.gz -C /var/www/pterodactyl --strip-components=1
 chmod -R 755 storage/* bootstrap/cache/
+chown -R www-data:www-data /var/www/pterodactyl
 ```
 ---
 🧮 4. RESTORE DATABASE
@@ -315,7 +313,6 @@ yarn install
 yarn build:production
 php artisan view:clear
 php artisan config:clear
-php artisan migrate --force
 php artisan queue:restart
 ```
 ---
